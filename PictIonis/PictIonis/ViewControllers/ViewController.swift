@@ -10,10 +10,14 @@ import UIKit
 import FirebaseAuth
 
 class ViewController: UIViewController {
+    
+    // MARK: - Properties
 
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var LoginButton: UIButton!
     
+    // MARK: - Init
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,18 +28,34 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if (Auth.auth().currentUser != nil) {
-            
+            transitionToHomeScreen()
         }
+        
     }
     
+    // MARK: - Navigation
+
+        func transitionToHomeScreen() {
+            
+            let homeViewController = storyboard?.instantiateViewController(identifier: "homeViewController") as? HomeViewController
+            
+            view.window?.rootViewController = homeViewController
+            view.window?.makeKeyAndVisible()
+            
+        }
+    
+    // MARK: - Helper functions
+
     func checkCurrentUserInfo() {
-        Utilities.styleFilledButton(signUpButton)
-        Utilities.styleHollowButton(LoginButton)
+       
     }
     
     func setUpElements() {
-        Utilities.styleFilledButton(signUpButton)
-        Utilities.styleHollowButton(LoginButton)
+        // Gradient Background
+        view.setGradientBackground(colorOne: Colors.violet, colorTwo: Colors.instagramyBlue)
+
+        Utilities.styleFilledButton(LoginButton)
+        Utilities.styleHollowButton(signUpButton)
     }
 
 

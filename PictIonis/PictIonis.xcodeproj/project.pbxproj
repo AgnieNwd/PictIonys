@@ -3,11 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		41647AE6B47E6AC21BF477E2 /* Pods_PictIonis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F4CE99E4165B65E1CDBEEA /* Pods_PictIonis.framework */; };
+		746DC4BA24EC073400E9E027 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746DC4B924EC073400E9E027 /* Extensions.swift */; };
+		74716C242508DB9400EA6F9F /* DrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74716C232508DB9400EA6F9F /* DrawViewController.swift */; };
+		74716C28250917A900EA6F9F /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74716C252509084600EA6F9F /* CanvasView.swift */; };
 		74A8911F24E458D200FF195D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A8911E24E458D200FF195D /* Utilities.swift */; };
 		74B713E824E2A7D7001AF274 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B713E724E2A7D7001AF274 /* AppDelegate.swift */; };
 		74B713EA24E2A7D7001AF274 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B713E924E2A7D7001AF274 /* SceneDelegate.swift */; };
@@ -25,6 +28,9 @@
 		14F4CE99E4165B65E1CDBEEA /* Pods_PictIonis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PictIonis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34CD5EF590C3B68BE55BBC33 /* Pods-PictIonis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PictIonis.release.xcconfig"; path = "Target Support Files/Pods-PictIonis/Pods-PictIonis.release.xcconfig"; sourceTree = "<group>"; };
 		647EF27E392C1B4D423902D2 /* Pods-PictIonis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PictIonis.debug.xcconfig"; path = "Target Support Files/Pods-PictIonis/Pods-PictIonis.debug.xcconfig"; sourceTree = "<group>"; };
+		746DC4B924EC073400E9E027 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		74716C232508DB9400EA6F9F /* DrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawViewController.swift; sourceTree = "<group>"; };
+		74716C252509084600EA6F9F /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		74A8911E24E458D200FF195D /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		74B713E424E2A7D7001AF274 /* PictIonis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PictIonis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74B713E724E2A7D7001AF274 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,14 +72,32 @@
 				647EF27E392C1B4D423902D2 /* Pods-PictIonis.debug.xcconfig */,
 				34CD5EF590C3B68BE55BBC33 /* Pods-PictIonis.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		74574C9924F58249006E5CC4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				74B713ED24E2A7D7001AF274 /* Main.storyboard */,
+				74B713F024E2A7D9001AF274 /* Assets.xcassets */,
+				74B713F224E2A7D9001AF274 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		74716C2725090F8A00EA6F9F /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				74716C252509084600EA6F9F /* CanvasView.swift */,
+			);
+			path = Class;
 			sourceTree = "<group>";
 		};
 		74A8912024E45AC200FF195D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				74A8911E24E458D200FF195D /* Utilities.swift */,
+				746DC4B924EC073400E9E027 /* Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -99,13 +123,12 @@
 		74B713E624E2A7D7001AF274 /* PictIonis */ = {
 			isa = PBXGroup;
 			children = (
-				74B7140124E2A9A5001AF274 /* ViewControllers */,
-				74A8912024E45AC200FF195D /* Helpers */,
 				74B713E724E2A7D7001AF274 /* AppDelegate.swift */,
 				74B713E924E2A7D7001AF274 /* SceneDelegate.swift */,
-				74B713ED24E2A7D7001AF274 /* Main.storyboard */,
-				74B713F024E2A7D9001AF274 /* Assets.xcassets */,
-				74B713F224E2A7D9001AF274 /* LaunchScreen.storyboard */,
+				74B7140124E2A9A5001AF274 /* ViewControllers */,
+				74716C2725090F8A00EA6F9F /* Class */,
+				74A8912024E45AC200FF195D /* Helpers */,
+				74574C9924F58249006E5CC4 /* Views */,
 				74B713F524E2A7D9001AF274 /* Info.plist */,
 				74FB23ED24E48EF300A6B04D /* GoogleService-Info.plist */,
 			);
@@ -116,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				74B713EB24E2A7D7001AF274 /* ViewController.swift */,
+				74716C232508DB9400EA6F9F /* DrawViewController.swift */,
 				74B713FB24E2A924001AF274 /* SignUpViewController.swift */,
 				74B713FD24E2A991001AF274 /* LoginViewController.swift */,
 				74B713FF24E2A99D001AF274 /* HomeViewController.swift */,
@@ -241,7 +265,10 @@
 			files = (
 				74B713EC24E2A7D7001AF274 /* ViewController.swift in Sources */,
 				74B713E824E2A7D7001AF274 /* AppDelegate.swift in Sources */,
+				74716C28250917A900EA6F9F /* CanvasView.swift in Sources */,
 				74A8911F24E458D200FF195D /* Utilities.swift in Sources */,
+				74716C242508DB9400EA6F9F /* DrawViewController.swift in Sources */,
+				746DC4BA24EC073400E9E027 /* Extensions.swift in Sources */,
 				74B713FC24E2A924001AF274 /* SignUpViewController.swift in Sources */,
 				74B713FE24E2A991001AF274 /* LoginViewController.swift in Sources */,
 				74B713EA24E2A7D7001AF274 /* SceneDelegate.swift in Sources */,
@@ -391,6 +418,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6LY75M9223;
 				INFOPLIST_FILE = PictIonis/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -409,6 +437,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6LY75M9223;
 				INFOPLIST_FILE = PictIonis/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
