@@ -36,12 +36,12 @@ class ViewController: UIViewController {
     // MARK: - Navigation
 
         func transitionToHomeScreen() {
-            
-            let homeViewController = storyboard?.instantiateViewController(identifier: "homeViewController") as? HomeViewController
-            
-            view.window?.rootViewController = homeViewController
-            view.window?.makeKeyAndVisible()
-            
+            if let homeViewController = storyboard?.instantiateViewController(identifier: "homeViewController") as? HomeViewController {
+                let homeNav = UINavigationController(rootViewController: homeViewController)
+                
+                view.window?.rootViewController = homeNav
+                view.window?.makeKeyAndVisible()
+            }
         }
     
     // MARK: - Helper functions

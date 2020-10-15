@@ -47,24 +47,31 @@ class SignUpViewController: UIViewController {
             let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            
+            print("password :::", password)
             // Create user
             Auth.auth().createUser(withEmail: email, password: password) { (data, error) in
                 if error != nil {
                     self.showError("Error on create user")
                 } else {
-                    let db = Firestore.firestore()
-                    // Add a new document with a generated ID
-                    db.collection("users").addDocument(data: [
-                        "firstname": firstName,
+//                    let db = Firestore.firestore()
+                    let user = [
+                        "firstname":  firstName,
                         "lastname": lastName,
                         "email": email,
                         "uid": data!.user.uid
-                    ]) { err in
-                        if let err = err {
-                            print("Error adding document: \(err)")
-                        }
-                    }
+                    ]
+                    Database.database().reference(withPath: "users").child(data!.user.uid).setValue(user)
+                    // Add a new document with a generated ID
+//                    db.collection("users").addDocument(data: [
+//                        "firstname": firstName,
+//                        "lastname": lastName,
+//                        "email": email,
+//                        "uid": data!.user.uid
+//                    ]) { err in
+//                        if let err = err {
+//                            print("Error adding document: \(err)")
+//                        }
+//                    }
                     
                     // Transition to the home screen
                     self.transitionToHomeScreen()
@@ -76,12 +83,12 @@ class SignUpViewController: UIViewController {
     // MARK: - Navigation
 
      func transitionToHomeScreen() {
-         
-         let homeViewController = storyboard?.instantiateViewController(identifier: "homeViewController") as? HomeViewController
-         
-         view.window?.rootViewController = homeViewController
-         view.window?.makeKeyAndVisible()
-         
+         if let homeViewController = storyboard?.instantiateViewController(identifier: "homeViewController") as? HomeViewController {
+             let homeNav = UINavigationController(rootViewController: homeViewController)
+             
+             view.window?.rootViewController = homeNav
+             view.window?.makeKeyAndVisible()
+         }
      }
     
     @IBAction func transitionToLogInScreen(_ sender: Any) {
@@ -90,6 +97,8 @@ class SignUpViewController: UIViewController {
         view.window?.rootViewController = logInViewController
         view.window?.makeKeyAndVisible()
     }
+    
+  
     
     // MARK: - Helper functions
     

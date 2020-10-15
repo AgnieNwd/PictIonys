@@ -12,6 +12,7 @@ target 'PictIonis' do
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
   pod 'FirebaseFirestoreSwift'
+  pod 'Firebase/Database'
 
 
 end
