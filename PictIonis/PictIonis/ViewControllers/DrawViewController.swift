@@ -14,8 +14,6 @@ class DrawViewController: UIViewController {
     var uid = ""
     var idGame: String = ""
     var user: [String:String] = [:]
-    var firstname = ""
-    var lastname = ""
     
     private lazy var drawRef: DatabaseReference! = Database.database().reference(withPath: "Drawing").child(idGame)
     
@@ -55,7 +53,6 @@ class DrawViewController: UIViewController {
         self.navigationItem.hidesBackButton = true
         let newBackButton = UIBarButtonItem(title: "< Back", style: .plain, target: self, action: #selector(transitionToHomeScreen))
         self.navigationItem.leftBarButtonItem = newBackButton
-        
         canvasView.idGame = idGame
         
         // First load lines
@@ -63,6 +60,8 @@ class DrawViewController: UIViewController {
             // Get user value
             let value = snapshot.value as? NSDictionary
             let author = value?["author"] as? NSDictionary
+            
+            self.navigationItem.title = (author?["firstname"] as? String ?? "") + "'s game"
             
             if let email = author?["email"] as? String, Auth.auth().currentUser?.email != email {
                 self.canvasView.isUserInteractionEnabled = false

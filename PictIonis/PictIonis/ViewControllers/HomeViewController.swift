@@ -126,7 +126,7 @@ class HomeViewController: UIViewController {
                 
 //            self.firstname = value?["firstname"] as? String ?? ""
 
-            self.welcomeLabel?.text = "Welcomen " + self.user["firstname"]! + " " + self.user["lastname"]!
+            self.welcomeLabel?.text = "Welcome " + self.user["firstname"]! + " " + self.user["lastname"]!
 
 //            print(">>>>>>>>> last frist name ", lastname, firstname)
         }) { (error) in
