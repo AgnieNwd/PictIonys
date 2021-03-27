@@ -1,2 +1,5 @@
-# Groupe de juzain_d
+# PictIonis
 
+> Guess the drawing
+
+iOS applicaiton drawsomething like. 
