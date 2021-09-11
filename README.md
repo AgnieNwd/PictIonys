@@ -1,5 +1,5 @@
 # PictIonis
-🕹 School Project - iOS applicaiton Pictionary like developed in swift.
+📱 School Project - iOS applicaiton Pictionary like developed in swift.
 
 ![Main](/screenshots/splashscreen.png)
 
